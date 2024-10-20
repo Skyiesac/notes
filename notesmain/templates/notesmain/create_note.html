@@ -1,0 +1,12 @@
+{% extends 'notesmain/base.html' %}
+{% block content %}
+    <div class="container">
+        <h1>Create New Note</h1>
+        <form method="post">
+            {% csrf_token %} 
+            {{ form.as_p }} 
+            <button type="submit" class="button">Save Note</button>
+        </form>
+        <a href="{% url 'gotonote' %}" class="button">Cancel</a> <!-- Link to notes list -->
+    </div>
+    {% endblock %}

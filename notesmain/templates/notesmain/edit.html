@@ -1,0 +1,14 @@
+{% extends 'notesmain/brief.html' %}
+
+{% block title %}Edit Note{% endblock %}
+
+{% block content %}
+<div class="container">
+        <h2>Edit Note: {{ note.title }}</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+    </form>
+</div>
+{% endblock %}

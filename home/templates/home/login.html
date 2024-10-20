@@ -70,7 +70,7 @@
         box-shadow: 0 0 5px rgba(208, 178, 156, 0.5);
     }
     
-    .login-form button {
+    .login-form a {
         background-color: #7a5a4f; /* Darker coffee shade */
         color: white;
         border: none;
@@ -81,7 +81,7 @@
         transition: background-color 0.3s, transform 0.2s;
     }
     
-    .login-form button:hover {
+    .login-form a:hover {
         background-color: #8b6e5e; /* Lighter brown on hover */
         transform: translateY(-2px);
     }
@@ -100,7 +100,9 @@
             opacity: 1;
         }
     }
-    
+    a{
+        text-decoration:none;
+    }
     @keyframes slideIn {
         from {
             opacity: 0;
@@ -125,7 +127,7 @@
             <form class="login-form">
                 <input type="text" placeholder="Username" required>
                 <input type="password" placeholder="Password" required>
-                <button type="submit">Log In</button>
+                <a href="{% url 'gotonote' %}" type="submit">Log In</a>
             </form>
         </main>
         {% if form.errors %}
