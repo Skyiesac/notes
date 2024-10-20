@@ -128,7 +128,9 @@
                 <button type="submit">Log In</button>
             </form>
         </main>
-        
+        {% if form.errors %}
+        <p>INVALID</p>
+        {% endif %}
         <footer>
             <p>&copy; 2024 Notes App. All rights reserved.</p>
         </footer>

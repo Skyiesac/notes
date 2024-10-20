@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Note Details</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f0e3; /* Light coffee shade */
+            color: #4b3c31; /* Dark coffee shade */
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            height: 100vh;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 600px;
+            background-color: #f0e1d2; /* Medium coffee shade */
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin-top: 20px;
+        }
+        
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            font-size: 2em;
+            color: #7a5a4f; /* Slightly darker coffee shade */
+        }
+        
+        .button-group {
+            display: flex;
+        }
+        
+        .button {
+            background-color: #7a5a4f; /* Darker coffee shade */
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-left: 10px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        
+        .button:hover {
+            background-color: #8b6e5e; /* Lighter brown on hover */
+            transform: translateY(-2px);
+        }
+        
+        .note-detail {
+            background-color: #d0b29c; /* Light brown shade */
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .note-detail h2 {
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+        
+        .note-content {
+            font-size: 1em;
+            line-height: 1.5;
+        }
+        
+        .note-footer {
+            margin-top: 15px;
+            font-size: 0.9em;
+            color: #7a5a4f; /* Slightly lighter coffee shade */
+        }
+        
+        .delete-button {
+            background-color: #b85c5c; /* Red for delete action */
+        }
+        
+        .delete-button:hover {
+            background-color: #d06e6e; /* Lighter red on hover */
+        }
+        
+        footer {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 0.9em;
+            color: #7a5a4f; /* Slightly lighter coffee shade */
+        }        
+    </style>
+</head>
+<body>
+    <div class="container">
+      
+            <h1>Note Details</h1>
+            <h1>{{ note.title}}</h1>
+            <h2>{{ note.text }}</h2>
+    </div>
+
+        <footer>
+            <p>&copy; 2024 Notes App. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>

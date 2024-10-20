@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f0e3; /* Light coffee shade */
+            color: #4b3c31; /* Dark coffee shade */
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            height: 100vh;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 800px;
+            background-color: #f0e1d2; /* Medium coffee shade */
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin-top: 20px;
+        }
+        
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        h1 {
+            font-size: 2em;
+            color: #7a5a4f; /* Slightly darker coffee shade */
+        }
+        
+        .button-group {
+            display: flex;
+        }
+        
+        .button {
+            background-color: #7a5a4f; /* Darker coffee shade */
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-left: 10px;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        
+        .button:hover {
+            background-color: #8b6e5e; /* Lighter brown on hover */
+            transform: translateY(-2px);
+        }
+        
+        .notes-list {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .note-card {
+            background-color: #d0b29c; /* Light brown shade */
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+        
+        .note-card:hover {
+            transform: scale(1.02);
+        }
+        
+        .note-footer {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+        }
+        
+        .edit-button {
+            background-color: #4b3c31; /* Dark coffee shade */
+            color: white;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        
+        .edit-button:hover {
+            background-color: #7a5a4f; /* Lighter on hover */
+        }
+        
+        footer {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 0.9em;
+            color: #7a5a4f; /* Slightly lighter coffee shade */
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>My Notes</h1>
+            <div class="button-group">
+                <a href="/logout/" class="button">Logout</a>
+                <a href="/notes/create/" class="button">Create New Note</a>
+            </div>
+        </header>
+        
+        <main>
+           {% for note in notes %}
+            <li>{{note.title}}<br>{{note.text}}
+            </li>
+
+           {% endfor %}
+        </main>
+
+        <footer>
+            <p>&copy; 2024 Notes App. All rights reserved.</p>
+       <p>{{ today }}</p>
+         </footer>
+    </div>
+</body>
+</html>
