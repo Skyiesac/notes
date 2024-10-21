@@ -7,12 +7,11 @@
         <input type="text" name="search" placeholder="Search notes title" value="{{ tosearch }}">
         <button type="submit">Search</button>
     </form>
-    
-    {% if note %}
-        {% for note in note %}
-           
-          {% endfor %}
-    {% else %}
-        <p>No notes found.</p>     
-    {% endif %}
+    {% for note in notes %}
+        <li>
+            <a href="{% url 'nodetail' note.pk %}">{{ note.title }}</a>
+        </li>
+    {% empty %}
+        <li>No notes found.</li>
+    {% endfor %}
 {% endblock %}

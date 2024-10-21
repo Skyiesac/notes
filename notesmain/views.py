@@ -54,7 +54,9 @@ def deletenote(request,pk):
     return render(request, 'notesmain/delete.html', {'note':note})
 
 @login_required
-def search(request):
-    tosearch = request.GET.get('search', '')
-    note= Notes.objects.filter(title__icontains= tosearch)
+def searching(request):
+    tosearch = request.GET.get('search','')
+    note= Notes.objects.filter(user= request.user)
+    if tosearch:
+        note = note.filter(title__icontains = tosearch)
     return render(request, 'notesmain/search.html', {'note':note, 'tosearch':tosearch})

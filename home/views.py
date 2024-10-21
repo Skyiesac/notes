@@ -28,6 +28,7 @@ def login_view(request):
     home_view = HomeView.as_view()
 
     if request.method == 'POST':
+        print('1'*100)
         form= AuthenticationForm(request, data= request.POST)
         if form.is_valid():
             username = form.cleaned_data.get('username')
@@ -36,8 +37,6 @@ def login_view(request):
             if user is not None:
                 login(request, user)
                 return redirect('gotonote')
-            else:
-                messages.error(request, 'Invalid username or password.')
         else:
             print(form.errors)
     else:
