@@ -1,0 +1,18 @@
+{% extends 'notesmain/base.html' %}
+
+{% block content %}
+    <h2>All Notes</h2>
+    {% comment %} not working yet {% endcomment %}
+    <form method="GET" action="{% url 'gotonote' %}">
+        <input type="text" name="search" placeholder="Search notes title" value="{{ tosearch }}">
+        <button type="submit">Search</button>
+    </form>
+    
+    {% if note %}
+        {% for note in note %}
+           
+          {% endfor %}
+    {% else %}
+        <p>No notes found.</p>     
+    {% endif %}
+{% endblock %}

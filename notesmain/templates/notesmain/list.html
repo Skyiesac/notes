@@ -117,10 +117,7 @@
     <div class="container">
         <header>
             <h1>My Notes</h1>
-            <div class="button-group">
-                <a href="/logout/" class="button">Log out</a>
-                <a href="{% url 'create_note' %}" class="button">Create New Note</a>
-            </div>
+            
         </header>
         
         <main>
@@ -135,7 +132,11 @@
         </div>
            {% endfor %}
         </main>
-
+        <div class="button-group">
+            <a href="{% url 'search' %}" class="button">Search</a>
+            <a href="{% url 'create_note' %}" class="button">Create New Note</a>
+            <a href="{% url 'logout' %}" class="button">Logout</a>
+        </div>
         <footer>
             <p>&copy; 2024 Notes App. All rights reserved.</p>
        <p>{{ today }}</p>
