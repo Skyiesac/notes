@@ -133,7 +133,7 @@
            {% endfor %}
         </main>
         <div class="button-group">
-            <a href="{% url 'search' %}" class="button">Search</a>
+            {% comment %} <a href="{% url 'search' %}" class="button">Search</a> {% endcomment %}
             <a href="{% url 'create_note' %}" class="button">Create New Note</a>
             <a href="{% url 'logout' %}" class="button">Logout</a>
         </div>

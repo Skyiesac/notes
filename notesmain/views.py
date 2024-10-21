@@ -2,6 +2,7 @@ from django.shortcuts import render ,get_object_or_404, redirect
 from .models import Notes
 from datetime import datetime
 from .forms import Newnotes
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
@@ -55,8 +56,13 @@ def deletenote(request,pk):
 
 @login_required
 def searching(request):
-    tosearch = request.GET.get('search','')
+    print("even me?")
+    tosearch = request.GET['tosearch']
     note= Notes.objects.filter(user= request.user)
+    print("AM i")
     if tosearch:
+        print("searching")
         note = note.filter(title__icontains = tosearch)
-    return render(request, 'notesmain/search.html', {'note':note, 'tosearch':tosearch})
+    else:
+        messages.error(request, 'not working')
+    #return render(request, 'notesmain/search.html', {'note':note, 'tosearch':tosearch})
