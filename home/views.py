@@ -28,7 +28,6 @@ def login_view(request):
     home_view = HomeView.as_view()
 
     if request.method == 'POST':
-        print('1'*100)
         form= AuthenticationForm(request, data= request.POST)
         if form.is_valid():
             username = form.cleaned_data.get('username')
