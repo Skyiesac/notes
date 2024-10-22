@@ -1,11 +1,35 @@
 from rest_framework.response import Response
+from rest_framework import status , generics
 from rest_framework.decorators import api_view
-from rest_framework import status
+from rest_framework.permissions import AllowAny , IsAuthenticated
 from notesmain.models import Notes
-from .serializers import NotesSerializer
+from rest_framework_simplejwt.authentication import JWTAuthentication
+from django.contrib.auth.models import User
+from .serializers import NotesSerializer , UserSerializer
 from django.views.decorators.csrf import csrf_exempt
-
+from rest_framework.views import APIView
 # Create your views here.
+
+
+class RegisterView(generics.CreateAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+    permission_classes = [AllowAny]
+
+    def create(self, request):
+        serializer = self.get_serializer(data=request.data)
+        if serializer.is_valid():
+            user = serializer.save()
+            return Response({'username': user.username}, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class ProtectedView(APIView):
+    authentication_classes = [JWTAuthentication]
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        return Response({'message': 'This is a protected view!'})
 
 @api_view(['GET'])
 def getData(request, format=None):

@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     #appsaddedbyme
     'home', 'notesmain' ,
-    'rest_framework' , 'api'
+    'rest_framework' , 'api',
+    'rest_framework_simplejwt' ,
 ]
 
 MIDDLEWARE = [
@@ -103,7 +104,11 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
+REST_FRAMEWORK = {
+    # 'DEFAULT_AUTHENTICATION_CLASSES':{
+    #     'rest_framework_simplejwt.authentication.JWTAuthentication',
+    # }
+}
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
 
